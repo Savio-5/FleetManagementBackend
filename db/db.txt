@@ -1,0 +1,39 @@
+#######################################################
+without foreign key
+#######################################################
+
+CREATE TABLE if not EXISTS ORDERS(
+    customerID int not null,
+    pickupLocation varchar(75),
+    deliveryLocation varchar(75),
+    pickupTimeFrame varchar(50),
+    deliveryTimeFrame varchar(50),
+    typeOfGoods varchar(30),
+    nameOfGoods varchar(30),
+    statuss varchar(10)
+);
+
+CREATE TABLE if not EXISTS shipper(
+    shipperID int PRIMARY KEY
+);
+
+
+CREATE table if not EXISTS trucking_companies(
+    cid int not null,
+    agencyID int not null,
+    driverID varchar(6) not null
+);
+
+CREATE TABLE if not EXISTS agency(
+    agencyID int not null,
+    cid int not null
+);
+
+
+CREATE table if not EXISTS drivers(
+    driverID varchar(6) PRIMARY KEY,
+    name varchar(30) not null,
+    email varchar(30) not null,
+    phone int(10) not null,
+    cid int
+);
